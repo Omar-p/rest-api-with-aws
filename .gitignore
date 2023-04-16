@@ -1,0 +1,18 @@
+.idea
+
+java-app/.gradle
+java-app/**/build/
+!java-app/src/**/build/
+
+# Ignore Gradle GUI config
+java-app/gradle-app.setting
+
+# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
+!java-app/gradle-wrapper.jar
+
+# Avoid ignore Gradle wrappper properties
+!java-app/gradle-wrapper.properties
+
+# Cache of project
+java-app/.gradletasknamecache
+
