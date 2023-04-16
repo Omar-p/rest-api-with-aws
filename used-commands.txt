@@ -1,0 +1,18 @@
+aws s3 mb s3://$MYBUCKET
+echo "export MYBUCKET=$MYBUCKET" >> ~/.zshrc
+aws s3 cp ./webapp1 s3://$MYBUCKET/dragonsapp/ --recursive --acl public-read
+echo "URL: https://$MYBUCKET.s3.amazonaws.com/dragonsapp/index.html"
+aws s3 cp dragon_stats_one.txt s3://$MYBUCKET
+aws s3 ls s3://$MYBUCKET
+
+aws ssm put-parameter \
+	--name "dragon_data_bucket_name" \
+	--type "String" \
+	--overwrite \
+	--value $MYBUCKET
+
+aws ssm put-parameter \
+	--name "dragon_data_file_name" \
+	--type "String" \
+	--overwrite \
+	--value dragon_stats_one.txt
